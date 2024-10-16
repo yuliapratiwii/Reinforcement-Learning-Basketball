@@ -95,16 +95,17 @@ Untuk menjalankan simulasi, eksekusi fungsi main() di skrip. Fungsi ini menjalan
 python robot-basket.py
 ```
 #### Argumen Utama:
-🧠 alpha: Learning rate.
-🧠 gamma: Discount factor.
-🧠 epsilon: Tingkat eksplorasi.
-🧠 epsilon_decay: Tingkat penurunan epsilon setelah setiap episode.
-🧠 epsilon_min: Nilai minimum epsilon.
-🧠 render: Aktifkan/Nonaktifkan rendering grafis.
-🧠 logging: Aktifkan/Nonaktifkan pencatatan untuk TensorBoard.
+✏️ alpha: Learning rate.<br>
+✏️ gamma: Discount factor.<br>
+✏️ epsilon: Tingkat eksplorasi.<br>
+✏️ epsilon_decay: Tingkat penurunan epsilon setelah setiap episode.<br>
+✏️ epsilon_min: Nilai minimum epsilon.<br>
+✏️ render: Aktifkan/Nonaktifkan rendering grafis.<br>
+✏️ logging: Aktifkan/Nonaktifkan pencatatan untuk TensorBoard.<br>
 
 ## Grafik
 Di bawah ini adalah grafik yang menunjukkan perkembangan reward rata-rata per episode selama proses pembelajaran.
+
 ![Grafik Analisis](https://github.com/yuliapratiwii/Reinforcement-Learning-Basketball/blob/master/Image/Grafik.png)
 
 Grafik ini menunjukkan peningkatan reward rata-rata seiring berjalannya episode, yang mengindikasikan bahwa agen belajar meningkatkan performa dalam mencetak skor.
