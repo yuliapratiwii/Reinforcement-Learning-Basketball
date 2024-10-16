@@ -5,7 +5,10 @@
 - Yulia Pratiwi (G1A021029)
 - Mareta Aliana (G1A021038)
 
-Repositori ini berisi kode Python yang mengimplementasikan simulasi permainan basket sederhana di mana agen AI belajar memainkan permainan menggunakan dua metode pembelajaran penguatan:
+[](https://github.com/user-attachments/assets/de468763-404a-4bc0-8857-29a45670aefd)
+
+
+Repositori ini berisi kode Python yang mengimplementasikan simulasi permainan basket sederhana di mana agen AI belajar memainkan permainan menggunakan dua metode Reinforcement Learning:
 1. **Q-Learning**
 2. **TD(λ)** (Temporal Difference dengan Traces Eligibilitas)
 
@@ -24,28 +27,22 @@ Simulasi ini bertujuan untuk melatih agen agar memaksimalkan skornya dalam lingk
 
 ## Instalasi
 
-Untuk menjalankan proyek ini, Anda perlu menginstal beberapa dependensi Python. Pastikan Python versi 3.x telah terinstal di sistem Anda. Berikut adalah dependensi yang diperlukan:
-- **Python 3.x:** 
-- **NumPy:** 
-- **Pygame:** 
-- **Matplotlib:** 
-- **TensorFlow (opsional):**
+Untuk menjalankan proyek ini, Perlu menginstal beberapa dependensi Python. Pastikan Python versi 3.x telah terinstal di sistem Anda. Berikut adalah dependensi yang diperlukan: 
+- **NumPy** 
+- **Pygame** 
+- **Matplotlib** 
+- **TensorFlow**
   
-Instal semua dependensi dengan perintah berikut:
-
-```
-pip install numpy pygame matplotlib tensorflow
-```
 ## Environment
 Lingkungan basket diimplementasikan dalam kelas BasketballEnv. Lingkungan ini adalah grid world di mana:
 
-◆ Agen (robot) dapat bergerak dalam empat arah (atas, bawah, kiri, kanan).<br>
+👾 Agen (robot) dapat bergerak dalam empat arah (atas, bawah, kiri, kanan).<br>
 
-◆ Agen dapat menggiring bola ketika berada dekat dengan bola dan mencoba menembak ketika berada dekat dengan keranjang.<br>
+👾 Agen dapat menggiring bola ketika berada dekat dengan bola dan mencoba menembak ketika berada dekat dengan keranjang.<br>
 
-◆ Terdapat lawan yang ditempatkan secara acak di grid yang menghalangi pergerakan agen.<br>
+👾 Terdapat lawan yang ditempatkan secara acak di grid yang menghalangi pergerakan agen.<br>
 
-◆ Tujuan agen adalah menggiring bola ke arah keranjang dan menembak, dengan tujuan untuk memaksimalkan skor.<br>
+👾 Tujuan agen adalah menggiring bola ke arah keranjang dan menembak, dengan tujuan untuk memaksimalkan skor.<br>
 
 ## Algoritma Pembelajaran 
 ### 1. Q-Learning
@@ -65,6 +62,7 @@ Proses Q-Learning:
 2. Agen mengambil tindakan berdasarkan Q-Table (dengan beberapa derajat eksplorasi).
 3. Q-value diperbarui berdasarkan reward yang diterima dan state selanjutnya.
 4. Seiring waktu, agen memperbaiki Q-Table-nya, yang digunakan untuk memaksimalkan reward dalam jangka panjang.
+5. 
 ### 2. TD(λ)
 TD(λ) adalah pengembangan dari metode Temporal Difference (TD) yang menggunakan eligibility traces untuk melacak pengaruh dari status-aksi yang telah dikunjungi. Hal ini mempercepat pembelajaran dengan memanfaatkan informasi dari beberapa langkah sebelumnya (multi-step).
 
@@ -74,7 +72,6 @@ TD(λ) adalah pengembangan dari metode Temporal Difference (TD) yang menggunakan
 #### Parameter TD(λ):
 λ (Lambda): Mengendalikan kecepatan decay dari eligibility traces. Nilai λ = 1 berarti semua jejak dipertimbangkan (serupa dengan Monte Carlo), sedangkan λ = 0 hanya memperbarui satu langkah terakhir (seperti TD Learning murni).<br>
 
-
 Contoh penerapan dalam kode:
 ```
 td = TDLambda(alpha=0.1, gamma=0.9, lambd=0.9, epsilon=0.95, epsilon_decay=0.99, epsilon_min=0.01)
@@ -83,7 +80,7 @@ td.learn(10000, 50)
 ## Logging
 Jika mengaktifkan logging, hasil pembelajaran agen dicatat menggunakan TensorFlow. Ini termasuk:
 * Reward per Episode: Reward yang diterima agen di setiap episode.
-* Rata-rata Reward: Rata-rata reward di setiap episode.<br.
+* Rata-rata Reward: Rata-rata reward di setiap episode.<br>
   
 Data ini dapat divisualisasikan menggunakan TensorBoard atau dengan plotting menggunakan Matplotlib.
 ## Visualisasi
@@ -91,21 +88,51 @@ Rendering dilakukan menggunakan library Pygame. Ketika render=True diberikan ke 
 
 ## How to Run
 Untuk menjalankan simulasi, eksekusi fungsi main() di skrip. Fungsi ini menjalankan algoritma Q-Learning untuk 9100 episode dengan 50 langkah per episode.
+
+1. Clone Repositori <br>
+Pertama-tama, clone repositori ini ke komputer lokal Anda dengan menggunakan perintah berikut:
+```
+git clone https://github.com/yuliapratiwii/Reinforcement-Learning-Basketball.git
+cd Reinforcement-Learning-Basketball
+```
+2. Instal Dependencies (Kebutuhan Paket) <br>
+Untuk menjalankan proyek ini, Anda perlu menginstal beberapa paket atau dependencies yang tercantum di file requirements.txt. Untuk menginstal semua dependencies tersebut, jalankan perintah berikut:
+
+```
+pip install -r requirements.txt
+```
+3. Menjalankan Proyek <br>
+Setelah semua dependencies terinstal, Anda dapat menjalankan proyek ini dengan perintah:
 ```
 python robot-basket.py
 ```
-#### Argumen Utama:
-✏️ alpha: Learning rate.<br>
-✏️ gamma: Discount factor.<br>
-✏️ epsilon: Tingkat eksplorasi.<br>
-✏️ epsilon_decay: Tingkat penurunan epsilon setelah setiap episode.<br>
-✏️ epsilon_min: Nilai minimum epsilon.<br>
-✏️ render: Aktifkan/Nonaktifkan rendering grafis.<br>
-✏️ logging: Aktifkan/Nonaktifkan pencatatan untuk TensorBoard.<br>
+4. Cara Menghentikan Program <br>
+
+Untuk menutup atau menghentikan program yang sedang berjalan, Anda dapat menggunakan cara berikut:
+
+💻 Windows/Linux: Tekan Ctrl + C di terminal.<br>
+
+🍎 MacOS: Tekan Command + C di terminal.
+
 
 ## Grafik
 Di bawah ini adalah grafik yang menunjukkan perkembangan reward rata-rata per episode selama proses pembelajaran.
 
 ![Grafik Analisis](https://github.com/yuliapratiwii/Reinforcement-Learning-Basketball/blob/master/Image/Grafik.png)
 
-Grafik ini menunjukkan peningkatan reward rata-rata seiring berjalannya episode, yang mengindikasikan bahwa agen belajar meningkatkan performa dalam mencetak skor.
+
+Grafik ini menggambarkan hubungan antara jumlah episode dan rata-rata hadiah (average reward) dalam pelatihan Reinforcement Learning (RL).<br>
+
+📊 Sumbu X (Episode): Jumlah episode yang dijalani agen.<br>
+
+📊 Sumbu Y (Average Reward per Episode): Nilai rata-rata hadiah per episode.
+
+Ringkasan Tren:
+
++ Awal Pelatihan: Rata-rata hadiah rendah, bahkan negatif, menunjukkan agen masih dalam fase eksplorasi dan sering melakukan kesalahan.<br>
+
++ Pertengahan: Terjadi peningkatan signifikan pada average reward, menunjukkan agen mulai memahami strategi yang lebih baik.<br>
+
++ Akhir Pelatihan: Setelah sekitar 4000 episode, average reward stabil, menunjukkan agen telah menemukan strategi optimal dan performanya konsisten.<br>
+
+Kesimpulan: Grafik ini menunjukkan kemajuan agen dalam belajar dari pengalaman, mulai dari eksplorasi hingga menemukan strategi optimal dengan average reward yang stabil.
